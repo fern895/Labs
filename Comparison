@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8" />
+<title>A4 JavaScript Form</title>
+
+<script type="text/javascript">
+function compareNumbers(one, two){
+	var ansSec = document.getElementById("answerSection");
+	var answer = document.createElement("p");
+	
+ 	if(parseInt(one) > parseInt(two))
+		{result = "Value 1 is greater than Value 2!";}
+	else if(parseInt(one) < parseInt(two))
+		{result = "Value 2 is greater than Value 1!";}
+	else
+		{result = "Both values are the same!";}
+	answer.textContent = result;
+	ansSec.appendChild(answer);
+}
+function conditionalOperator(){
+	var one = document.comp.firstValue.value;
+	var two = document.comp.secondValue.value;
+	
+	result= (parseInt(one) == parseInt(two)) ? "Both values are the same!" : "Both values are not the same!";
+	var ansSec = document.getElementById("answerSection");
+	var answer = document.createElement("p");
+	
+	answer.textContent = result;
+	ansSec.appendChild(answer);
+}
+function multiplyNumbers(value1, value2){
+	var result = value1 * value2;
+	
+	document.getElementById("solution").value = result;
+	
+}
+function showButton(WhichPic){
+	var hidePic = document.getElementById("solution");
+	hidePic.style.display = "block";
+}
+</script>
+</head>
+<body>
+	<form id="comp" name="comp">
+	<h1>Comparison of Two Numbers</h1>
+	First Value: <input type="number" name="firstValue"/>
+	Second Value: <input type="number" name="secondValue" />
+	
+	<h1>Multiply Both Numbers</h1>
+	First Number: <input type="number" name="firstNumber"/>
+	Second Number: <input type="number" name="secondNumber"/>
+	Solution <input type="number" id="solution"/>
+	
+	<p>
+	<input type="button" value="Compare" id="B1" name="B1" onclick="compareNumbers(firstValue.value, secondValue.value);"/>
+	<input type="button" value="Conditional" id="B2" name="B2" onclick="conditionalOperator();"/>
+	<input type="button" value="Multiply" id="B3" name="B3" onmouseout = "showButton('solution');" onclick="multiplyNumbers(firstNumber.value, secondNumber.value);"/>
+	</p>
+	<section id="answerSection">
+	
+	</section>
+	</form>
+</body>
+
+</html>
